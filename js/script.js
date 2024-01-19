@@ -1,57 +1,161 @@
-// script.js
+//write a javascript code for validation of user for course registration website
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Sample data - replace this with your actual data or fetch it from an API
-  var coursesData = [
-    { title: "Course 1", description: "Description of Course 1." },
-    { title: "Course 2", description: "Description of Course 2." },
-    { title: "Course 3", description: "Description of Course 3." },
-  ];
+//function to validate the form
 
-  // Function to create a course card element
-  function createCourseCard(course) {
-    var card = document.createElement('div');
-    card.className = 'col-md-4 course';
+function validateForm() {
+    //get the value of the name field
+    var name = document.getElementById('name').value;
+    //get the value of the email field
+    var email = document.getElementById('email').value;
+    //get the value of the password field
+    var password = document.getElementById('password').value;
+    //get the value of the confirm password field
+    var confirm_password = document.getElementById('confirm_password').value;
+    //get the value of the phone number field
+    var phone = document.getElementById('phone').value;
+    //get the value of the address field
+    var address = document.getElementById('address').value;
+    //get the value of the city field
+    var city = document.getElementById('city').value;
+    //get the value of the state field
+    var state = document.getElementById('state').value;
+    //get the value of the zip code field
+    var zip = document.getElementById('zip').value;
+    //get the value of the country field
+    var country = document.getElementById('country').value;
+    //get the value of the course field
+    var course = document.getElementById('course').value;
+    //get the value of the course duration field
+    var course_duration = document.getElementById('course_duration').value;
+    //get the value of the course fee field
+    var course_fee = document.getElementById('course_fee').value;
+    //get the value of the course start date field
+    var course_start_date = document.getElementById('course_start_date').value;
+    //get the value of the course end date field
+    var course_end_date = document.getElementById('course_end_date').value;
+    //get the value of the course start time field
+    var course_start_time = document.getElementById('course_start_time').value;
+    //get the value of the course end time field
+    var course_end_time = document.getElementById('course_end_time').value;
+    //get the value of the course description field
+    var course_description = document.getElementById('course_description').value;
+    //get the value of the course instructor field
+    var course_instructor = document.getElementById('course_instructor').value;
+    //get the value of the course instructor email field
+    var course_instructor_email = document.getElementById('course_instructor_email').value;
+    //get the value of the course instructor phone field
+    var course_instructor_phone = document.getElementById('course_instructor_phone').value
+}
 
-    card.innerHTML = `
-      <div class="card">
-        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Course Image">
-        <div class="card-body">
-          <h5 class="card-title">${course.title}</h5>
-          <p class="card-text">${course.description}</p>
-          <button class="btn btn-primary">Learn More</button>
-        </div>
-      </div>
-    `;
-
-    return card;
-  }
-
-  // Function to render courses on the page
-  function renderCourses(courses) {
-    var coursesContainer = document.getElementById('courses');
-
-    // Clear existing content
-    coursesContainer.innerHTML = '';
-
-    // Create and append course cards
-    courses.forEach(function (course) {
-      var card = createCourseCard(course);
-      coursesContainer.appendChild(card);
-    });
-  }
-
-  // Initial rendering of courses
-  renderCourses(coursesData);
-
-  // Sample event listener for course buttons (replace with actual functionality)
-  document.addEventListener('click', function (event) {
-    if (event.target.classList.contains('btn-primary')) {
-      var courseTitle = event.target.closest('.course').querySelector('.card-title').textContent;
-      alert('You clicked on: ' + courseTitle);
-      // Add logic to display detailed information or navigate to a course page
+//function to validate name field
+function validateName() {
+    //get the value of the name field
+    var name = document.getElementById('name').value;
+    //check if the name field is empty
+    if (name == "") {
+        //display error message
+        document.getElementById('name_error').innerHTML = "Name is required";
+        //set the focus on the name field
+        document.getElementById('name').focus();
+        //return false
+        return false;
     }
-  });
+    //check if the name field is less than 3 characters
+    if (name.length < 3) {
+        //display error message
+        document.getElementById('name_error').innerHTML = "Name must be at least 3 characters";
+        //set the focus on the name field
+        document.getElementById('name').focus();
+        //return false
+        return false;
+    }
+    //check if the name field is greater than 20 characters
+    if (name.length > 20) {
+        //display error message
+        document.getElementById('name_error').innerHTML = "Name must be less than 20 characters";
+        //set the focus on the name field
+        document.getElementById('name').focus();
+        //return false
+        return false;
+    }
+    //check if the name field is valid
+    if (!name.match(/^[a-zA-Z]+$/)) {
+        //display error message
+        document.getElementById('name_error').innerHTML = "Name must contain only alphabets";
+        //set the focus on the name field
+        document.getElementById('name').focus();
+        //return false
+        return false;
+    }
+    //if the name field is valid, return true
+    else {
+        return true;
+    }
+}
 
-  // Add more dynamic functionalities as needed
-});
+//function to validate email field
+
+function validateEmail() {
+    //get the value of the email field
+    var email = document.getElementById('email').value;
+    //check if the email field is empty
+    if (email == "") {
+        //display error message
+        document.getElementById('email_error').innerHTML = "Email is required";
+        //set the focus on the email field
+        document.getElementById('email').focus();
+        //return false
+        return false;
+    }
+    //check if the email field is valid
+    if (!email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)) {
+        //display error message
+        document.getElementById('email_error').innerHTML = "Email is invalid";
+        //set the focus on the email field
+        document.getElementById('email').focus();
+        //return false
+        return false;
+    }
+    //if the email field is valid, return true
+    else {
+        return true;
+    }
+}
+
+//function to validate password field
+
+function validatePassword() {
+    //get the value of the password field
+    var password = document.getElementById('password').value;
+    //check if the password field is empty
+    if (password == "") {
+        //display error message
+        document.getElementById('password_error').innerHTML = "Password is required";
+        //set the focus on the password field
+        document.getElementById('password').focus();
+        //return false
+        return false;
+    }
+    //check if the password field is less than 8 characters
+    if (password.length < 8) {
+        //display error message
+        document.getElementById('password_error').innerHTML = "Password must be at least 8 characters";
+        //set the focus on the password field
+        document.getElementById('password').focus();
+        //return false
+        return false;
+    }
+    //check if the password field is greater than 20 characters
+    if (password.length > 20) {
+        //display error message
+        document.getElementById('password_error').innerHTML = "Password must be less than 20 characters";
+        //set the focus on the password field
+        document.getElementById('password').focus();
+        //return false
+        return false;
+    }
+    //if the password field is valid, return true
+    else {
+        return true;
+    }
+}
