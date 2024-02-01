@@ -160,6 +160,16 @@ section .signin .content .form .inputBox i
   letter-spacing: 0.05em;
   cursor: pointer;
 }
+
+#signup-link{
+  color: white;
+  font-weight: 600;
+}
+
+#signup-link:hover{
+  color: rgb(27, 219, 27);
+}
+
 input[type="submit"]:active
 {
   opacity: 0.6;
