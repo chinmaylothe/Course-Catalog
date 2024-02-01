@@ -154,15 +154,28 @@
         font-weight: 600;
       }
 
-      .signup .content .form .inputBox input[type="submit"] {
-        padding: 10px;
-        background: rgb(157, 237, 255);
-        color: #000;
+    .signup .content .form .inputBox input[type="submit"] {
+      padding: 10px;
+      background: rgb(157, 237, 255);
+      color: #000;
+      font-weight: 600;
+      font-size: 1.35em;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+    }
+
+    .links{
+        color: white;
+    }
+
+    #login-link{
+        color: white;
         font-weight: 600;
-        font-size: 1.35em;
-        letter-spacing: 0.05em;
-        cursor: pointer;
-      }
+    }
+
+    #login-link:hover{
+        color: rgb(33, 169, 237);
+    }
 
       input[type="submit"]:active {
         opacity: 0.6;
@@ -237,9 +250,9 @@
               <i>Confirm Password</i>
             </div>
 
-            <div class="links">
-              <a href="./login.html">Already have an account? Login</a>
-            </div>
+          <div class="links">
+            Already have an account?<a href="./login.html" id="login-link"> Login</a>
+          </div>
 
             <div class="inputBox">
               <input type="submit" value="Sign Up" onclick="validateSignUp()" />
