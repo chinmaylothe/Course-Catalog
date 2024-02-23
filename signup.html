@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>CodePen - Animated Sign Up Form using Html &amp; CSS Only</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="script" href="js/signup.js" />
+    <script src="./js/signup.js"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 
@@ -439,30 +439,30 @@
         <div class="content">
           <h2>Sign Up</h2>
 
-          <div class="form">
+          <form action="register.php" method="post" class="form">
             <div class="inputBox">
-              <input type="text" required /> <i>Name</i>
+              <input type="text" required name = "uname"/> <i>Name</i>
             </div>
 
             <div class="inputGroup">
               <div class="inputBox">
-                <input type="text" required /> <i>Username</i>
+                <input type="text" required name="username"/><i>Username</i>
               </div>
 
               <div class="inputBox">
-                <input type="text" required /> <i>Phone</i>
+                <input type="text" required name="phone"/> <i>Phone</i>
               </div>
 
               <div class="inputBox">
-                <input type="text" required /> <i>Age</i>
+                <input type="text" required name="age"/> <i>Age</i>
               </div>
 
               <div class="inputBox">
-                <input type="text" required /> <i>Branch</i>
+                <input type="text" required name="branch"/> <i>Branch</i>
               </div>
 
               <div class="inputBox">
-                <input type="password" required /> <i>Password</i>
+                <input type="password" required name="upassword"/> <i>Password</i>
               </div>
 
               <div class="inputBox">
@@ -479,7 +479,7 @@
             <div class="inputBox">
               <input type="submit" value="Sign Up" />
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </section>
