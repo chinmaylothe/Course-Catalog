@@ -1,4 +1,10 @@
 <?php
+function redirect($url) {
+    ob_start();
+    header('Location: '.$url);
+    ob_end_flush();
+    exit();
+    }
 // Check if the form is submitted
 if ($_POST) {
     // Retrieve form data
@@ -21,7 +27,7 @@ if ($_POST) {
     //     echo "Please fill in all the fields.";
     // } else {
         // Connect to MySQL database
-        $conn = new mysqli("localhost", "adi", "", "Course");
+        $conn = new mysqli("localhost", "admin", "", "Course");
         
         // Check connection
         if (!$conn) {
@@ -29,7 +35,6 @@ if ($_POST) {
         }
         else{
             echo "Connected successfully";
-
         }
 
         echo "Going for connection";
@@ -38,6 +43,7 @@ if ($_POST) {
         echo "Command created";
         if (mysqli_query($conn, $sql)) {
             echo "User registered successfully.";
+            redirect('login.html');
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
