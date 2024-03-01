@@ -252,3 +252,9 @@ textarea {
   align-items: center;
 }
 
+.login-btn{
+  width: 4rem;
+  text-align: center;
+  height: 2.5rem;
+  border-radius: 8px;
+}
