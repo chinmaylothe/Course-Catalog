@@ -9,21 +9,208 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./css/style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <style>
+      /* Reset styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Typography */
+      body {
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 700;
+      }
+
+      /* Color Scheme */
+      :root {
+        --primary-color: #6c63ff;
+        --secondary-color: #f5f5f5;
+        --text-color: #333;
+        --background-color: #fff;
+      }
+
+      /* General Styles */
+      body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+      }
+
+      .navbar {
+        background-color: var(--primary-color);
+      }
+
+      .btn-primary {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+      }
+
+      /* Hero Section */
+      .jumbotron {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url('https://source.unsplash.com/random/1920x1080/?learning');
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Card Styling */
+      .card {
+        border: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease-in-out;
+      }
+
+      .card:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-img-top {
+        border-radius: 8px 8px 0 0;
+      }
+
+      /* Spacing and Layout */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      /* Animations and Transitions */
+      .navbar-nav .nav-link {
+        position: relative;
+        transition: color 0.3s ease-in-out;
+      }
+
+      .navbar-nav .nav-link::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--secondary-color);
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .navbar-nav .nav-link:hover::before {
+        transform: scaleX(1);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 767px) {
+        .navbar-nav {
+          text-align: center;
+        }
+
+        .card {
+          margin-bottom: 20px;
+        }
+      }
+
+      /* Accessibility */
+      :focus {
+        outline: 2px solid var(--primary-color);
+      }
+
+      /* Previous Styles */
       body {
         padding-top: 50px;
       }
-/* Adi */
+
       .course {
         margin-bottom: 20px;
+      }
+
+      .card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card-body {
+        flex-grow: 1;
+      }
+
+      .card-img-top {
+        max-height: 200px;
+        width: auto;
+        margin: 0 auto;
+      }
+
+      .card {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      }
+
+      .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .card:not(:hover) {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      }
+
+      .card {
+        border-radius: 8px;
+      }
+
+      .btn-primary {
+        transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+      }
+
+      .btn-primary:hover {
+        background-color: #0069d9;
+        border-color: #0062cc;
+      }
+
+      .footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+
+      .login-btn {
+        width: 4rem;
+        text-align: center;
+        height: 2.5rem;
+        border-radius: 8px;
       }
     </style>
   </head>
 
   <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
       <a class="navbar-brand" href="#">Course Catalog</a>
       <button
         class="navbar-toggler"
@@ -46,9 +233,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#contact">Contact</a>
-            <li class="nav-item">
-            <a class="nav-link text-white btn-primary login-btn" href="login.html" >Login</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link text-white btn-primary login-btn" href="./login.html">Login</a>
           </li>
         </ul>
       </div>
@@ -58,9 +245,7 @@
     <header class="jumbotron">
       <div class="container text-center">
         <h1 class="display-4">Explore Our Courses</h1>
-        <p class="lead">
-          Enrich your knowledge with our diverse selection of courses.
-        </p>
+        <p class="lead">Enrich your knowledge with our diverse selection of courses.</p>
       </div>
     </header>
 
@@ -74,12 +259,13 @@
             <img
               src="./img/pngwing.com.png"
               class="card-img-top w-50 h-100 m-auto"
-              alt="Course Image"
+              alt="HTML Course"
             />
             <div class="card-body">
-              <h5 class="card-title">Course 1</h5>
-              <p class="card-text">Description of Course 1.</p>
+              <h5 class="card-title">HTML</h5>
+              <p class="card-text">Learn the fundamentals of HTML to build web pages.</p>
               <a href="#" class="btn btn-primary">Learn More</a>
+              <a href="https://www.example.com/html-certification" class="btn btn-success" target="_blank">Get Certified</a>
             </div>
           </div>
         </div>
@@ -89,12 +275,13 @@
             <img
               src="./img/css-logo-300x300.png"
               class="card-img-top w-50 h-100 mx-auto mt-2"
-              alt="Course Image"
+              alt="CSS Course"
             />
             <div class="card-body">
-              <h5 class="card-title">Course 2</h5>
-              <p class="card-text">Description of Course 2.</p>
+              <h5 class="card-title">CSS</h5>
+              <p class="card-text">Style your web pages with CSS for better visuals.</p>
               <a href="#" class="btn btn-primary">Learn More</a>
+              <a href="https://www.example.com/html-certification" class="btn btn-success" target="_blank">Get Certified</a>
             </div>
           </div>
         </div>
@@ -103,13 +290,62 @@
           <div class="card">
             <img
               src="./img/pngwing.com%20(2).png"
-              class="card-img-top w-50 mt-3 mx-auto h-100 float-start "
-              alt="Course Image"
+              class="card-img-top w-50 mt-3 mx-auto h-100 float-start"
+              alt="Bootstrap Course"
             />
             <div class="card-body">
-              <h5 class="card-title">Course 3</h5>
-              <p class="card-text">Description of Course 3.</p>
+              <h5 class="card-title">Bootstrap</h5>
+              <p class="card-text">Build responsive websites using Bootstrap framework.</p>
               <a href="#" class="btn btn-primary">Learn More</a>
+              <a href="https://www.example.com/html-certification" class="btn btn-success" target="_blank">Get Certified</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 course">
+          <div class="card">
+            <img
+              src="./img/python.png"
+              class="card-img-top w-50 mt-3 mx-auto h-100 float-start"
+              alt="Python Course"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Python3</h5>
+              <p class="card-text">Learn Python programming for data analysis and more.</p>
+              <a href="#" class="btn btn-primary">Learn More</a>
+              <a href="https://www.example.com/html-certification" class="btn btn-success" target="_blank">Get Certified</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 course">
+          <div class="card">
+            <img
+              src="./img/php.png"
+              class="card-img-top w-50 mt-3 mx-auto h-100 float-start"
+              alt="PHP Course"
+            />
+            <div class="card-body">
+              <h5 class="card-title">PHP</h5>
+              <p class="card-text">Dive into server-side programming with PHP.</p>
+              <a href="#" class="btn btn-primary">Learn More</a>
+              <a href="https://www.example.com/html-certification" class="btn btn-success" target="_blank">Get Certified</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 course">
+          <div class="card">
+            <img
+              src="./img/java1.png"
+              class="card-img-top w-50 mt-3 mx-auto h-100 float-start"
+              alt="Java Course"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Java</h5>
+              <p class="card-text">Master Java programming for enterprise applications.</p>
+              <a href="#" class="btn btn-primary">Learn More</a>
+              <a href="https://www.example.com/html-certification" class="btn btn-success" target="_blank">Get Certified</a>
             </div>
           </div>
         </div>
@@ -120,15 +356,28 @@
     <section id="about" class="container text-center">
       <h2 class="mb-4">About Us</h2>
       <p class="m-7">
-        Our curated catalog boasts a diverse array of courses, meticulously
-        designed to cater to beginners and seasoned professionals alike. Join
-        our community of learners and embark on a journey of discovery,
-        innovation, and hands-on learning.
+        Our curated catalog boasts a diverse array of courses, meticulously designed to cater to
+        beginners and seasoned professionals alike. Join our community of learners and embark on a
+        journey of discovery, innovation, and hands-on learning.
       </p>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="container text-center"></section>
+    <section id="contact" class="container text-center">
+      <h2 class="mb-4">Contact Us</h2>
+      <form>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Name" />
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="Email" />
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" rows="5" placeholder="Message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </section>
 
     <!-- Footer -->
     <footer class="bg-dark text-light text-center py-3">
